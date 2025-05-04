@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Koiralaakson</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Comfortaa:wght@400;700&display=swap" rel="stylesheet">
+  <!-- FontAwesome for dog icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    /* Global styles */
+    body { margin:0; font-family: 'Poppins', sans-serif; background:#FFFDD0; color:#333; }
+    a { text-decoration:none; }
+
+    /* Navigation bar */
+    nav { background:#FFFDD0; padding:10px; text-align:center; }
+    nav a {
+      display:inline-block;
+      margin:5px 10px;
+      padding:8px 16px;
+      color:#444;
+      background:#FFFFFF;
+      border:2px solid #999;
+      border-radius:20px; /* Rounded “pill” style */
+      font-weight:600;
+      margin: 0 auto; 
+    }
+    nav a.cta {
+      background:#E9E1FC;  /* Lavender */
+      color:#FFF;
+      border-color:#B3A5ED;
+    }
+
+    /* Hero section */
+    .hero {
+      display:flex;
+      flex-wrap:wrap;
+      align-items:center;
+      justify-content:center;
+      background:#E9E1FC;  /* Lavender */
+      border-radius:20px;  /* Rounded container */
+      padding:40px;
+      margin:20px auto;
+      border: 1px solid #080808;
+      max-width: 800px; 
+      position: relative;
+        overflow: visible
+      
+    }
+    .hero-text { max-width:60%; }
+    .hero-text h1 { font-size:2em; margin-bottom:0.5em; font-family:'Comfortaa', sans-serif; }
+    .hero-text p { line-height:1.4em; }
+    .hero-text .btn {
+      display:inline-block;
+      margin-top:1em;
+      padding:10px 20px;
+      background:#BE94E6;  /* Bright lavender */
+      color:#FFF;
+      border-radius:30px;
+      font-weight:600;
+      border: 1px solid #080808;
+      margin: 0 auto; 
+    }
+    .hero-img img {
+      max-width:300px;
+      border-radius:15px;
+      position: absolute;
+  bottom: -60px;  /* Push image downward out of hero */
+  right: 20px;    /* Or left: 20px; depending on layout */
+      
+      
+    }
+
+    /* Statistics section */
+    .stats {
+      display:flex;
+      flex-wrap:wrap;
+      justify-content:space-around;
+      margin:20px auto;
+      max-width: 900px; 
+      
+    }
+    .stat-item {
+      flex:1 1 200px;
+      background:#E9E1FC;
+      margin:10px;
+      padding:20px;
+      text-align:center;
+      border-radius:15px;
+      border: 1px solid #080808;
+    }
+    .stat-item .number {
+      font-size:1.5em;
+      font-weight:600;
+      color:#444;
+    }
+    .stat-item .label {
+      margin-top:0.5em;
+      font-size:0.9em;
+      color:#555;
+    }
+    .stats-img img {
+      max-width:400px;
+      border-radius:15px;
+      position: absolute;
+    
+    left: 100px;    /* Or left: 20px; depending on layout */
+    top: 250px;
+      
+      
+    }
+
+    /* About section */
+    .about {
+      background:#FFDAB9;  /* Peach */
+      border-radius:20px;
+      padding:30px;
+      margin:20px;
+      display:flex;
+      flex-wrap:wrap;
+      align-items:center;
+      border: 1px solid #080808;
+      max-width: 820px; 
+      margin: 0 auto; 
+    }
+    .about-text { flex:1 1 50%; }
+    .about-text h2 { font-family:'Comfortaa', sans-serif; }
+    .about-text p { line-height:1.5em; }
+    .about-media { flex:1 1 40%; padding:10px; }
+    .about-media iframe, .about-media img {
+      width:100%;
+      border-radius:15px;
+      
+    }
+    
+   
+
+    /* Footer */
+    footer { text-align:center; padding:20px; background:#FFFDD0; font-size:0.9em; }
+    @media (max-width: 768px) {
+  .hero {
+    flex-direction: column;
+    text-align: center;
+    padding: 20px;
+  }
+
+  .hero-text {
+    max-width: 100%;
+  }
+
+  .hero-img img {
+    position: static;
+    max-width: 100%;
+    margin-top: 20px;
+  }
+
+  .stats {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .stats-img img {
+    position: static;
+    max-width: 90%;
+    margin-bottom: 20px;
+  }
+
+  .about {
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .about-text,
+  .about-media {
+    flex: 1 1 100%;
+    padding: 0;
+    text-align: center;
+  }
+
+  nav a {
+    display: block;
+    margin: 8px auto;
+  }
+}
+  </style>
+</head>
+<body>
+
+  <!-- Navigation bar with pill buttons -->
+  <nav>
+    <a href="#about">Meistä</a>
+    <a href="#rules">Säännöt</a>
+    <a href="#faq">FAQ</a>
+    <a href="#contact">Ota yhteyttä</a>
+    <a href="#book" class="cta">Varaa tunti</a>
+  </nav>
+
+  <!-- Hero section -->
+  <section class="hero">
+    <div class="hero-text">
+      <h1>Anna koirallesi ihana hierontahetki</h1>
+      <p>Monien koirien lihasjumit huutavat hierontaa!</p>
+      <a href="#book" class="btn">Varaa tunti</a>
+    </div>
+    <div class="hero-img">
+      <!-- Example illustration (replace with your own) -->
+      <img src="dog1.png" alt="Cartoon dog illustration">
+      
+    </div>
+  </section>
+
+  <!-- Statistics section -->
+  <section class="stats">
+    <div class="stats-img">
+        <img src="dog2.png" alt="Cartoon dog illustration">
+      </div>
+    <div class="stat-item">
+        
+      <div class="number">Asiakkaiden palautetta:</div>
+      <div class="label">"Ihanaa koirahierontaa!"</div>
+      <div class="label">"Koirat tykkäsivät!"</div>
+    </div>
+    <div class="stat-item">
+      <div class="number">50+</div>
+      <div class="label">koira hierontaa</div>
+    </div>
+  </section>
+
+  <!-- About/Description section -->
+  <section id="about" class="about">
+    <div class="about-text">
+      <h2>Mikä on pentujooga?</h2>
+      <p>Pentujooga on leppoisa ja energisoiva kokemus, jossa yhdistelet joogan liikkeitä koirasi kanssa. Tunnilla rentoudut ja treenaat kehoa lempeässä ympäristössä koirien leikkiessä ja juostessa vapaasti.</p>
+    </div>
+    <div class="about-media">
+      <!-- Example video embed (replace VIDEO_ID) -->
+      <iframe src="https://www.youtube.com/embed/VIDEO_ID" frameborder="0" allowfullscreen></iframe>
+    </div>
+  </section>
+
+  <footer>
+    © 2025 Lovly Dog Massage – Kaikki oikeudet pidätetään.
+  </footer>
+
+</body>
+</html>
