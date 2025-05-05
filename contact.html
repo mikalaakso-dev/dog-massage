@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ota yhteyttä – Koiralaakson</title>
+  <!-- Fontit ja ikonit -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Comfortaa:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  
+  <!-- Sama tyyli kuin kotisivulla -->
+  <style>
+      body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: #FFFDD0;
+      color: #333;
+    }
+
+    /* Navigaatio */
+    nav {
+      background: #FFFDD0;
+      padding: 10px;
+      text-align: center;
+    }
+
+    nav a {
+      display: inline-block;
+      margin: 5px 10px;
+      padding: 8px 16px;
+      color: #444;
+      background: #FFFFFF;
+      border: 2px solid #999;
+      border-radius: 20px;
+      font-weight: 600;
+    }
+
+    nav a.cta {
+      background: #E9E1FC;
+      color: #FFF;
+      border-color: #B3A5ED;
+    }
+    footer { text-align:center; padding:20px; background:#FFFDD0; font-size:0.9em; }
+    /* Responsiivisuus */
+ 
+    
+    @media (max-width: 768px) {
+      nav a {
+        display: block;
+        margin: 8px auto;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigaatio (sama kuin etusivulla) -->
+  <nav>
+    <a href="index.html">Etusivu</a>
+    <a href="#faq">FAQ</a>
+    <a href="contact.html">Ota yhteyttä</a>
+    
+  </nav>
+
+  <!-- Yhteydenottolomake -->
+  <section id="contact" style=" display:block; position: relative;
+  width: 800px;
+  margin-top:1em;
+  padding:50px 50px;
+  background:#E9E1FC;
+  color:#0e0d0d;
+  border-radius:30px;
+  font-weight:400;
+  border: 1px solid #080808;
+  margin: 0 auto; ">
+    <h2>Ota yhteyttä</h2>
+    <img src="dog3.png" alt="Cartoon dog illustration" style="
+    position: absolute;
+    top: 20px;
+    right: -5px;
+    max-width: 120px;
+    height: auto;
+    border-radius: 15px;
+    z-index: 10;
+  ">
+    <form id="contact-form">
+      <label for="name">Nimi</label>
+      <input type="text" id="name" name="name" required style="width: 100%; padding: 8px;">
+  
+      <label for="email">Sähköposti</label>
+      <input type="email" id="email" name="email" required style="width: 100%; padding: 8px;">
+  
+      <label for="message">Viesti</label>
+      <textarea id="message" name="message" rows="5" required style="width: 100%; padding: 8px;"></textarea>
+  
+      <button type="submit" style="display:inline-block;
+      margin-top:1em;
+      padding:10px 20px;
+      background:#BE94E6;  /* Bright lavender */
+      color:#FFF;
+      border-radius:30px;
+      font-weight:600;
+      border: 1px solid #080808;
+      margin: 0 auto;">Lähetä</button>
+    </form>
+    <div id="form-status" style="margin-top: 10px;"></div>
+  
+    <script>
+      document.getElementById('contact-form').addEventListener('submit', async function (e) {
+        e.preventDefault();
+  
+        const formData = {
+          name: document.getElementById('name').value,
+          email: document.getElementById('email').value,
+          message: document.getElementById('message').value
+        };
+  
+        const response = await fetch('/api/contact', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(formData)
+        });
+  
+        const status = document.getElementById('form-status');
+        if (response.ok) {
+          status.innerText = 'Kiitos viestistäsi!';
+          document.getElementById('contact-form').reset();
+        } else {
+          status.innerText = 'Viestin lähetys epäonnistui.';
+        }
+      });
+    </script>
+
+  </section>
+
+  <footer>
+    © 2025 Koiralaakson koirahieronta – Kaikki oikeudet pidätetään.
+  </footer>
+
+</body>
+</html>
